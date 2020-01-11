@@ -7,6 +7,10 @@ First of all open a terminal and create an empty workspace:
 mkdir ~/tiago_public_ws
 cd ~/tiago_public_ws
 ```
+You can clone the repository above and skip the next step or downloading the **tiago_public.rosinstall**.
+
+or
+
 Download the file **tiago_public.rosinstall**. Copy the rosinstall file in ~/tiago_public_ws. Then run the following instruction in order to clone all the required repositories within the workspace: 
 
 Set up rosdep
