@@ -1,5 +1,5 @@
 # Sorting_Aruco_Markers
-sorting crops/boxes based on Aruco Markers. Warehous or Factory Use.
+sorting crops/boxes based on Aruco Markers. Warehouse or Factory Use.
 
 ## Installing and building the tiago_public_ws
 First of all open a terminal and create an empty workspace:
