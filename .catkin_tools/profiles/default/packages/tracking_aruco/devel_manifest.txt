@@ -1,0 +1,5 @@
+tracking_aruco
+/home/mohamed/tiago_public_ws/devel/.private/tracking_aruco/cmake.lock /home/mohamed/tiago_public_ws/devel/./cmake.lock
+/home/mohamed/tiago_public_ws/devel/.private/tracking_aruco/lib/pkgconfig/tracking_aruco.pc /home/mohamed/tiago_public_ws/devel/lib/pkgconfig/tracking_aruco.pc
+/home/mohamed/tiago_public_ws/devel/.private/tracking_aruco/share/tracking_aruco/cmake/tracking_arucoConfig-version.cmake /home/mohamed/tiago_public_ws/devel/share/tracking_aruco/cmake/tracking_arucoConfig-version.cmake
+/home/mohamed/tiago_public_ws/devel/.private/tracking_aruco/share/tracking_aruco/cmake/tracking_arucoConfig.cmake /home/mohamed/tiago_public_ws/devel/share/tracking_aruco/cmake/tracking_arucoConfig.cmake

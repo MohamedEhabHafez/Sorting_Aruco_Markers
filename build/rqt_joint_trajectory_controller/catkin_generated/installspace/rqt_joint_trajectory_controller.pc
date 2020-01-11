@@ -1,0 +1,8 @@
+prefix=/home/mohamed/tiago_public_ws/install
+
+Name: rqt_joint_trajectory_controller
+Description: Description of rqt_joint_trajectory_controller
+Version: 0.3.18
+Cflags: 
+Libs: -L/home/mohamed/tiago_public_ws/install/lib 
+Requires: 

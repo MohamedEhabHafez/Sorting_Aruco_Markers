@@ -1,0 +1,5 @@
+Symlinking /home/mohamed/tiago_public_ws/devel/lib/libaruco.so
+Symlinking /home/mohamed/tiago_public_ws/devel/lib/pkgconfig/aruco.pc
+Symlinking /home/mohamed/tiago_public_ws/devel/lib/aruco/optimalmarkers
+Symlinking /home/mohamed/tiago_public_ws/devel/share/aruco/cmake/arucoConfig-version.cmake
+Symlinking /home/mohamed/tiago_public_ws/devel/share/aruco/cmake/arucoConfig.cmake

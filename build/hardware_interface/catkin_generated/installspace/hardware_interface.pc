@@ -1,0 +1,8 @@
+prefix=/home/mohamed/tiago_public_ws/install
+
+Name: hardware_interface
+Description: Description of hardware_interface
+Version: 0.2.10
+Cflags: -I/home/mohamed/tiago_public_ws/install/include
+Libs: -L/home/mohamed/tiago_public_ws/install/lib 
+Requires: roscpp

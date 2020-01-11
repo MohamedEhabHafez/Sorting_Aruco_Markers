@@ -1,0 +1,8 @@
+prefix=/home/mohamed/tiago_public_ws/devel/.private/tiago_maps
+
+Name: tiago_maps
+Description: Description of tiago_maps
+Version: 2.0.3
+Cflags: 
+Libs: -L/home/mohamed/tiago_public_ws/devel/.private/tiago_maps/lib 
+Requires: 

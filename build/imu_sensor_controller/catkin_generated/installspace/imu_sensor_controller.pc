@@ -1,0 +1,8 @@
+prefix=/home/mohamed/tiago_public_ws/install
+
+Name: imu_sensor_controller
+Description: Description of imu_sensor_controller
+Version: 0.3.18
+Cflags: -I/home/mohamed/tiago_public_ws/install/include
+Libs: -L/home/mohamed/tiago_public_ws/install/lib -limu_sensor_controller
+Requires: controller_interface hardware_interface pluginlib realtime_tools roscpp sensor_msgs

@@ -1,0 +1,8 @@
+prefix=/home/mohamed/tiago_public_ws/install
+
+Name: play_motion_msgs
+Description: Description of play_motion_msgs
+Version: 0.4.8
+Cflags: -I/home/mohamed/tiago_public_ws/install/include
+Libs: -L/home/mohamed/tiago_public_ws/install/lib 
+Requires: message_runtime actionlib_msgs

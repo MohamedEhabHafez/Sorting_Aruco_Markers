@@ -1,0 +1,8 @@
+prefix=/home/mohamed/tiago_public_ws/install
+
+Name: tf_lookup
+Description: Description of tf_lookup
+Version: 0.0.1
+Cflags: -I/home/mohamed/tiago_public_ws/install/include
+Libs: -L/home/mohamed/tiago_public_ws/install/lib 
+Requires: actionlib_msgs geometry_msgs message_runtime tf

@@ -1,0 +1,8 @@
+prefix=/home/mohamed/tiago_public_ws/install
+
+Name: pal_detection_msgs
+Description: Description of pal_detection_msgs
+Version: 0.12.14
+Cflags: -I/home/mohamed/tiago_public_ws/install/include
+Libs: -L/home/mohamed/tiago_public_ws/install/lib 
+Requires: message_runtime sensor_msgs geometry_msgs actionlib_msgs

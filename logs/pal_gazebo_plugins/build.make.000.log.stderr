@@ -1,0 +1,18 @@
+/home/mohamed/tiago_public_ws/src/pal_gazebo_plugins/src/gazebo_ros_forcetorque.cpp: In member function ‘void gazebo::FTPlugin::UpdateChild()’:
+/home/mohamed/tiago_public_ws/src/pal_gazebo_plugins/src/gazebo_ros_forcetorque.cpp:173:56: warning: ‘double gazebo::sensors::Sensor::GetUpdateRate()’ is deprecated [-Wdeprecated-declarations]
+         double rate = footContactSensor->GetUpdateRate();
+                                                        ^
+In file included from /usr/include/gazebo-7/gazebo/sensors/ContactSensor.hh:26:0,
+                 from /home/mohamed/tiago_public_ws/src/pal_gazebo_plugins/include/pal_gazebo_plugins/gazebo_ros_forcetorque.h:67,
+                 from /home/mohamed/tiago_public_ws/src/pal_gazebo_plugins/src/gazebo_ros_forcetorque.cpp:37:
+/usr/include/gazebo-7/gazebo/sensors/Sensor.hh:96:22: note: declared here
+       public: double GetUpdateRate() GAZEBO_DEPRECATED(7.0);
+                      ^
+/home/mohamed/tiago_public_ws/src/pal_gazebo_plugins/src/gazebo_ros_forcetorque.cpp:180:57: warning: ‘gazebo::msgs::Contacts gazebo::sensors::ContactSensor::GetContacts() const’ is deprecated [-Wdeprecated-declarations]
+         contacts = this->footContactSensor->GetContacts();
+                                                         ^
+In file included from /home/mohamed/tiago_public_ws/src/pal_gazebo_plugins/include/pal_gazebo_plugins/gazebo_ros_forcetorque.h:67:0,
+                 from /home/mohamed/tiago_public_ws/src/pal_gazebo_plugins/src/gazebo_ros_forcetorque.cpp:37:
+/usr/include/gazebo-7/gazebo/sensors/ContactSensor.hh:126:30: note: declared here
+       public: msgs::Contacts GetContacts() const GAZEBO_DEPRECATED(7.0);
+                              ^

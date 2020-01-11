@@ -1,0 +1,8 @@
+prefix=/home/mohamed/tiago_public_ws/devel/.private/simple_models_description
+
+Name: simple_models_description
+Description: Description of simple_models_description
+Version: 0.0.17
+Cflags: 
+Libs: -L/home/mohamed/tiago_public_ws/devel/.private/simple_models_description/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/mohamed/tiago_public_ws/devel/.private/pal_interaction_msgs
+
+Name: pal_interaction_msgs
+Description: Description of pal_interaction_msgs
+Version: 0.12.14
+Cflags: -I/home/mohamed/tiago_public_ws/devel/.private/pal_interaction_msgs/include
+Libs: -L/home/mohamed/tiago_public_ws/devel/.private/pal_interaction_msgs/lib 
+Requires: message_runtime

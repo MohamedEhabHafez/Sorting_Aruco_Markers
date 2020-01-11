@@ -1,0 +1,8 @@
+prefix=/home/mohamed/tiago_public_ws/install
+
+Name: joy_teleop
+Description: Description of joy_teleop
+Version: 0.3.2
+Cflags: -I/home/mohamed/tiago_public_ws/install/include
+Libs: -L/home/mohamed/tiago_public_ws/install/lib 
+Requires: actionlib teleop_tools_msgs

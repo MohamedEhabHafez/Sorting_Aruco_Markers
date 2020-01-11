@@ -1,0 +1,1 @@
+/home/mohamed/tiago_public_ws/devel/.private/tracking_aruco/lib/pkgconfig/tracking_aruco.pc

@@ -1,0 +1,8 @@
+prefix=/home/mohamed/tiago_public_ws/devel/.private/tracking_aruco
+
+Name: tracking_aruco
+Description: Description of tracking_aruco
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/mohamed/tiago_public_ws/devel/.private/tracking_aruco/lib 
+Requires: 
