@@ -65,6 +65,8 @@ class ArucoNavigation():
             orientation_q = self.tiago_base_home_pose.orientation
             orientation_list = [orientation_q.x, orientation_q.y, orientation_q.z, orientation_q.w]
             (_,_,self.home_pose_heading) = euler_from_quaternion(orientation_list)
+        elif self.previous_marker_id == 0:
+            self.home_pose_heading = self.aruco_heading-math.pi   
         
 #         if self.start:
 #             self.navigate()
@@ -85,6 +87,7 @@ class ArucoNavigation():
     # [START Main Class functions]
     def navigate(self):
         """ navigating based on the Aruco markers IDs to reach the desired crops ID destination """
+       
         print("navigate",self.aruco_id,self.previous_marker_id)
         if (self.aruco_id != self.previous_marker_id and self.aruco_pose.position.z < 0.05):
             
@@ -107,6 +110,7 @@ class ArucoNavigation():
                     self.rotate_right(math.pi/2)
                     time.sleep(5.0)
                     print(self.aruco_id,"2nd rotation")
+                    
                     ## Return to the home position
                     self.delivered = True
                     self.previous_marker_id = self.aruco_id
@@ -119,20 +123,23 @@ class ArucoNavigation():
                     rospy.loginfo("Crop of id "+str(self.aruco_id)+" REACHED!")
                     self.previous_marker_id = self.aruco_id
                     
-            self.get_aruco()               
+        self.get_aruco()               
     
     def rotate_right(self, theta):
         """ Rotate Tiago Robot base right to the Drop-off Destination for the desired sorted crop """
+        
         rate = rospy.Rate(5.0)
+        
         # Rotating the target radian yaw by 90 degrees to the right.
         target_yaw = self.tiago_current_heading-theta
+        rospy.loginfo("rotate right from  "+str(self.tiago_current_heading)+" to "+str(target_yaw))
         
         # Publish cmd_vel (Twist) msg with the rotation to topic /mobile_base_controller/cmd_vel.
         cmd_vel = Twist()
         cmd_vel.angular.z = -0.5
                 
         if self.tiago_current_heading-theta < -math.pi:
-            target_yaw = abs(target_yaw+ 2*math.pi)
+            target_yaw = target_yaw + 2*math.pi
             sign = np.sign(self.tiago_current_heading) 
             while ((self.tiago_current_heading < target_yaw and sign==-1) or (sign==1 and self.tiago_current_heading > target_yaw)):
                 self.cmd_vel_pub.publish(cmd_vel)  
@@ -146,29 +153,30 @@ class ArucoNavigation():
              
     def rotate_left(self, theta):
         """ Rotate Tiago Robot base left to the Drop-off Destination for the desired sorted crop """
+        
         rate = rospy.Rate(4.0)
+        
         # Rotating the target radian yaw by 90 degrees to the left.
-        target_yaw = self.tiago_current_heading-theta
-        print(target_yaw, self.tiago_current_heading)
+        target_yaw = self.tiago_current_heading+theta
+        rospy.loginfo("rotate left from  "+str(self.tiago_current_heading)+" to "+str(target_yaw))
         
         # Publish cmd_vel (Twist) msg with the rotation to topic /mobile_base_controller/cmd_vel.
         cmd_vel = Twist()
-        cmd_vel.angular.z = -0.5
+        cmd_vel.angular.z = 0.5
                 
-#         if self.tiago_current_heading-theta < -math.pi:
-#             target_yaw = abs(target_yaw+ 2*math.pi)
-#             sign = np.sign(self.tiago_current_heading) 
-#             while ((self.tiago_current_heading < target_yaw and sign==-1) or (sign==1 and self.tiago_current_heading > target_yaw)):
-#                 self.cmd_vel_pub.publish(cmd_vel)  
-#                 sign = np.sign(self.tiago_current_heading)     
-#                 print(self.tiago_current_heading)
-#                 rate.sleep()
-#         else:        
-#             while (self.tiago_current_heading > target_yaw):
-#                 self.cmd_vel_pub.publish(cmd_vel)
-#                 print(self.tiago_current_heading)
-#                 rate.sleep()
-    
+        if self.tiago_current_heading-theta > math.pi:
+            target_yaw = target_yaw - 2*math.pi
+            sign = np.sign(self.tiago_current_heading) 
+            while ((self.tiago_current_heading < target_yaw and sign==-1) or (sign==1 and self.tiago_current_heading > target_yaw)):
+                self.cmd_vel_pub.publish(cmd_vel)  
+                sign = np.sign(self.tiago_current_heading)     
+                rate.sleep()
+        else:        
+            while (self.tiago_current_heading < target_yaw):
+                self.cmd_vel_pub.publish(cmd_vel)
+                rate.sleep()
+        rospy.loginfo("Reached heading : "+str(self.tiago_current_heading))     
+           
 #     def pick_up(self):
 #         """ Pick the crop's box using the end effector gripper """
     
@@ -203,7 +211,7 @@ class ArucoNavigation():
                     rospy.loginfo("Crop of id "+str(self.aruco_id)+" REACHED!")
                     self.previous_marker_id = self.aruco_id
             
-            self.get_aruco()
+        self.get_aruco()
         
     
     def publish_setpoint(self):
@@ -218,11 +226,10 @@ class ArucoNavigation():
         tiago_base_setpoint.pose.orientation.y = 0.0
         
         if not self.delivered:
-            print("wrong")
-            tiago_base_setpoint.pose.orientation.z = self.tiago_base_home_pose.orientation.z
-            tiago_base_setpoint.pose.orientation.w = self.tiago_base_home_pose.orientation.w
+            orientation_list = quaternion_from_euler(0.0, 0.0, self.home_pose_heading)
+            tiago_base_setpoint.pose.orientation.z = orientation_list[2]
+            tiago_base_setpoint.pose.orientation.w = orientation_list[3]
         else:
-            print("right")
             orientation_list = quaternion_from_euler(0.0, 0.0, self.home_pose_heading-math.pi)
             tiago_base_setpoint.pose.orientation.z = orientation_list[2]
             tiago_base_setpoint.pose.orientation.w = orientation_list[3]    
